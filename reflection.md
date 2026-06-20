@@ -6,7 +6,12 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
+  - Hints are backwards. With a secret number of 93, I input 99. It said "Go higher"
+  - The button "New Game" does not start a new game when game is done. Only worked when clicked in the middle of the game.
+    I have to refresh the entire page to do so.
+
+  - The score on the developer debug info goes negative. Does not match score, or there isn't any score tracker that matches the final score shown at the end of the game.
+  
 
 **Bug Reproduction Log**
 
@@ -14,9 +19,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+|  33   |  Go Higher hint         Go Lower           None
+| New Game | Start new game |  Nothing |  None |
+| 44    | Go Lower Hint    |  Go Higher | 
 
 ---
 
