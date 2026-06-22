@@ -25,9 +25,9 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] Describe the game's purpose.
+- [x] Detail which bugs you found.
+- [x] Explain what fixes you applied.
 
 ## 📸 Demo Walkthrough
 
@@ -39,7 +39,7 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 4. If you're lucky, you win!
 5. Start a new game to have more fun! 😀
 
-**Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
+**Screenshot**: ![alt text](image.png)<!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
