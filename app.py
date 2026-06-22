@@ -65,7 +65,7 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 
 st.title("🎮 Game Glitch Investigator")
-st.caption("An AI-generated guessing game. Something is off.")
+st.caption("An AI-generated guessing game. Something was off, but I turned it on...")
 
 st.sidebar.header("Settings")
 
@@ -122,7 +122,7 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
-if new_game:  #FIX: AI found New Game only reset attempts and secret; added score, status, and history resets so game fully restarts
+if new_game:  #FIX: AI found New Game only reset attempts and secret; added score, status, and history resets so game restarts as it should
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
     st.session_state.score = 0
@@ -143,7 +143,7 @@ if submit:
     if not ok:
         st.error(err)
     else:
-        st.session_state.attempts += 1  #FIX: AI moved increment inside valid-guess block so empty submits don't burn attempts
+        st.session_state.attempts += 1  #FIX: AI moved increment inside valid-guess block so empty submits are not accepted and attempts don't clear
         st.session_state.history.append(guess_int)
 
         outcome, message = check_guess(guess_int, st.session_state.secret)
@@ -181,4 +181,4 @@ with st.expander("Developer Debug Info"):
     st.write("History:", st.session_state.history)
 
 st.divider()
-st.caption("Built by an AI that claims this code is production-ready.")
+st.caption("Built by an AI that claims this code is production-ready. (UPDATE: It is now fixed.)")

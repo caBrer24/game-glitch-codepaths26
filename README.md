@@ -39,7 +39,7 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 4. If you're lucky, you win!
 5. Start a new game to have more fun! 😀
 
-**Screenshot**: ![alt text](Assets/image.png)<!-- Insert a screenshot of your fixed, winning game here -->
+**Screenshot**: ![alt text](Assets/winning.png)<!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
