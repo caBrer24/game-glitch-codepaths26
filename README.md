@@ -33,20 +33,46 @@ It wrote the code, ran away, and now the game is unplayable.
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Depending on difficulty, enter a number within a certain range
+2. Game returns "Too High" or "Too Low" and you get one less attempt left
+3. Enter another guess based on the hint
+4. If you're lucky, you win!
+5. Start a new game to have more fun! 😀
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+====================================================================== test session starts ======================================================================
+platform linux -- Python 3.13.3, pytest-9.1.1, pluggy-1.6.0 -- /home/cabrecar007/AIProjects/GameGlitch/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/cabrecar007/AIProjects/GameGlitch
+plugins: anyio-4.14.0
+collected 20 items                                                                                                                                              
+
+tests/test_game_logic.py::test_winning_guess PASSED                                                                                                       [  5%]
+tests/test_game_logic.py::test_guess_too_high PASSED                                                                                                      [ 10%]
+tests/test_game_logic.py::test_guess_too_low PASSED                                                                                                       [ 15%]
+tests/test_game_logic.py::test_high_guess_outcome_is_too_high PASSED                                                                                      [ 20%]
+tests/test_game_logic.py::test_low_guess_outcome_is_too_low PASSED                                                                                        [ 25%]
+tests/test_game_logic.py::test_double_digit_vs_single_digit_compares_numerically PASSED                                                                   [ 30%]
+tests/test_game_logic.py::test_int_comparison_is_not_lexicographic PASSED                                                                                 [ 35%]
+tests/test_game_logic.py::test_score_does_not_go_negative_on_too_high PASSED                                                                              [ 40%]
+tests/test_game_logic.py::test_score_does_not_go_negative_on_too_low PASSED                                                                               [ 45%]
+tests/test_game_logic.py::test_too_high_and_too_low_deduct_equally PASSED                                                                                 [ 50%]
+tests/test_game_logic.py::test_wrong_guess_deducts_five_when_score_allows PASSED                                                                          [ 55%]
+tests/test_game_logic.py::test_win_score_never_goes_below_ten PASSED                                                                                      [ 60%]
+tests/test_game_logic.py::test_win_score_rewards_early_guess PASSED                                                                                       [ 65%]
+tests/test_game_logic.py::test_empty_string_is_invalid PASSED                                                                                             [ 70%]
+tests/test_game_logic.py::test_none_is_invalid PASSED                                                                                                     [ 75%]
+tests/test_game_logic.py::test_non_numeric_string_is_invalid PASSED                                                                                       [ 80%]
+tests/test_game_logic.py::test_valid_number_parses_correctly PASSED                                                                                       [ 85%]
+tests/test_game_logic.py::test_float_string_truncates_to_int PASSED                                                                                       [ 90%]
+tests/test_game_logic.py::test_hard_range_is_larger_than_normal PASSED                                                                                    [ 95%]
+tests/test_game_logic.py::test_easy_range_is_smaller_than_normal PASSED                                                                                   [100%]
+
+====================================================================== 20 passed in 0.08s =======================================================================
 ```
 
 ## 🚀 Stretch Features
