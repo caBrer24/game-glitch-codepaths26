@@ -7,7 +7,7 @@ def get_range_for_difficulty(difficulty: str):
     if difficulty == "Normal":
         return 1, 100
     if difficulty == "Hard":
-        return 1, 200
+        return 1, 200  #FIX: AI identified Hard (1-50) was a smaller range than Normal (1-100); expanded to 1-200
     return 1, 100
 
 
@@ -35,9 +35,9 @@ def check_guess(guess, secret):
 
     try:
         if guess > secret:
-            return "Too High", "📈 Go LOWER!"
+            return "Too High", "📈 Go LOWER!"  #FIX: AI spotted messages were swapped; Too High must say Go LOWER
         else:
-            return "Too Low", "📉 Go HIGHER!"
+            return "Too Low", "📉 Go HIGHER!"  #FIX: same swap fix; Too Low must say Go HIGHER
     except TypeError:
         g = str(guess)
         if g == secret:
@@ -55,10 +55,10 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
         return current_score + points
 
     if outcome == "Too High":
-        return max(0, current_score - 5)
+        return max(0, current_score - 5)  #FIX: AI flagged score going negative and asymmetric deduction; floor added
 
     if outcome == "Too Low":
-        return max(0, current_score - 5)
+        return max(0, current_score - 5)  #FIX: same symmetric deduction applied; both wrong guesses now cost equally
 
     return current_score
 
@@ -91,7 +91,7 @@ if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
 if "attempts" not in st.session_state:
-    st.session_state.attempts = 0
+    st.session_state.attempts = 0  #FIX: AI caught attempts initialized to 1, causing off-by-one in attempts display
 
 if "score" not in st.session_state:
     st.session_state.score = 0
@@ -104,7 +104,7 @@ if "history" not in st.session_state:
 
 st.subheader("Make a guess")
 
-st.info(
+st.info(  #FIX: AI caught the range was hardcoded as "1 and 100" regardless of difficulty; now uses actual low/high
     f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
@@ -122,7 +122,7 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
-if new_game:
+if new_game:  #FIX: AI found New Game only reset attempts and secret; added score, status, and history resets so game fully restarts
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
     st.session_state.score = 0
@@ -143,7 +143,7 @@ if submit:
     if not ok:
         st.error(err)
     else:
-        st.session_state.attempts += 1
+        st.session_state.attempts += 1  #FIX: AI moved increment inside valid-guess block so empty submits don't burn attempts
         st.session_state.history.append(guess_int)
 
         outcome, message = check_guess(guess_int, st.session_state.secret)
